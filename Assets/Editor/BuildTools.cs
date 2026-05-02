@@ -72,4 +72,67 @@ public class BuildTools
         if (System.Environment.GetCommandLineArgs().Length > 1)
             BuildPC();
     }
+
+    [MenuItem("Build/Android APK 导出", false, 10)]
+    public static void BuildAndroid()
+    {
+        string[] scenes = new string[]
+        {
+            "Assets/Scenes/MainMenu.unity",
+            "Assets/Scenes/GameScene.unity",
+            "Assets/Scenes/ResultScene.unity"
+        };
+
+        foreach (string scene in scenes)
+        {
+            if (AssetDatabase.LoadAssetAtPath<SceneAsset>(scene) == null)
+            {
+                Debug.LogError($"场景不存在: {scene}");
+                EditorUtility.DisplayDialog("导出失败", $"场景不存在: {scene}", "确定");
+                return;
+            }
+        }
+
+        // 切换到 Android 平台
+        if (EditorUserBuildSettings.activeBuildTarget != BuildTarget.Android)
+        {
+            if (!EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android))
+            {
+                Debug.LogError("切换到 Android 平台失败");
+                EditorUtility.DisplayDialog("导出失败", "切换到 Android 平台失败，请确保已安装 Android Build Support", "确定");
+                return;
+            }
+        }
+
+        // 配置 Android PlayerSettings
+        PlayerSettings.companyName = "Talentcong";
+        PlayerSettings.productName = "英语单词闯关";
+        PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, "com.Talentcong.WordQuest");
+        PlayerSettings.defaultInterfaceOrientation = UIOrientation.LandscapeLeft;
+
+        // 输出路径
+        string projectPath = System.IO.Path.GetFullPath(".");
+        string outputFile = projectPath + "/英语单词闯关.apk";
+
+        BuildPlayerOptions options = new BuildPlayerOptions
+        {
+            scenes = scenes,
+            locationPathName = outputFile,
+            target = BuildTarget.Android,
+            options = BuildOptions.None
+        };
+
+        BuildReport report = BuildPipeline.BuildPlayer(options);
+
+        if (report.summary.result == BuildResult.Succeeded)
+        {
+            Debug.Log($"APK 导出成功: {outputFile}");
+            EditorUtility.DisplayDialog("导出成功", $"APK 导出完成！\n{outputFile}", "确定");
+        }
+        else
+        {
+            Debug.LogError($"APK 导出失败: {report.summary.result}");
+            EditorUtility.DisplayDialog("导出失败", $"APK 导出失败，请查看 Console 日志", "确定");
+        }
+    }
 }
