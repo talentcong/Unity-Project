@@ -66,11 +66,12 @@ public class MainMenuManager : MonoBehaviour
         scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
         scaler.matchWidthOrHeight = 0.5f;
 
-        // === 背景（关闭射线拦截） ===
+        // === 背景 ===
         GameObject bgGO = new GameObject("Background", typeof(Image));
         Image bgImage = bgGO.GetComponent<Image>();
-        bgImage.color = new Color(0.12f, 0.20f, 0.40f);
-        bgImage.raycastTarget = false; // 不拦截点击
+        UIStyler.ApplyVerticalGradient(bgImage,
+            new Color(0.10f, 0.15f, 0.35f),   // 顶部深蓝
+            new Color(0.25f, 0.40f, 0.65f));  // 底部浅蓝
         RectTransform bgRect = bgGO.GetComponent<RectTransform>();
         bgRect.SetParent(canvasGO.transform, false);
         bgRect.anchorMin = Vector2.zero;
@@ -129,8 +130,10 @@ public class MainMenuManager : MonoBehaviour
 
         // 按钮外观
         Image btnImage = btnGO.GetComponent<Image>();
-        btnImage.color = new Color(0.2f, 0.4f, 0.7f);
-        btnImage.raycastTarget = true;
+        Color btnColor = label == "退出游戏"
+            ? new Color(0.65f, 0.20f, 0.20f) // 红色
+            : new Color(0.20f, 0.45f, 0.75f); // 蓝色
+        UIStyler.StyleButton(btnImage, btnColor);
 
         // 按钮位置
         RectTransform btnRect = btnGO.GetComponent<RectTransform>();

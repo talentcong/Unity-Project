@@ -86,8 +86,9 @@ public class GameSceneManager : MonoBehaviour
     {
         GameObject bg = new GameObject("Background", typeof(Image));
         Image img = bg.GetComponent<Image>();
-        img.color = new Color(0.12f, 0.20f, 0.40f);
-        img.raycastTarget = false;
+        UIStyler.ApplyVerticalGradient(img,
+            new Color(0.10f, 0.15f, 0.35f),
+            new Color(0.25f, 0.40f, 0.65f));
         RectTransform rt = bg.GetComponent<RectTransform>();
         rt.SetParent(parent, false);
         rt.anchorMin = Vector2.zero;
@@ -137,8 +138,7 @@ public class GameSceneManager : MonoBehaviour
         btnGO.transform.SetParent(parent, false);
 
         Image img = btnGO.GetComponent<Image>();
-        img.color = new Color(0.6f, 0.2f, 0.2f); // 红色
-        img.raycastTarget = true;
+        UIStyler.StyleButton(img, new Color(0.65f, 0.20f, 0.20f));
 
         RectTransform btnRT = btnGO.GetComponent<RectTransform>();
         btnRT.sizeDelta = new Vector2(100, 45);
@@ -219,8 +219,7 @@ public class GameSceneManager : MonoBehaviour
 
             // 按钮外观
             Image img = btnGO.GetComponent<Image>();
-            img.color = new Color(0.2f, 0.4f, 0.7f);
-            img.raycastTarget = true;
+            UIStyler.StyleButton(img, new Color(0.20f, 0.45f, 0.75f));
 
             // 按钮位置
             RectTransform btnRT = btnGO.GetComponent<RectTransform>();
@@ -339,8 +338,7 @@ public class GameSceneManager : MonoBehaviour
         btnGO.transform.SetParent(parent, false);
 
         Image img = btnGO.GetComponent<Image>();
-        img.color = new Color(0.3f, 0.6f, 0.3f); // 绿色
-        img.raycastTarget = true;
+        UIStyler.StyleButton(img, new Color(0.25f, 0.55f, 0.30f));
 
         RectTransform btnRT = btnGO.GetComponent<RectTransform>();
         btnRT.sizeDelta = new Vector2(240, 70);
