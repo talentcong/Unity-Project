@@ -1,0 +1,94 @@
+{
+    "questions": [
+        {
+            "word": "apple",
+            "correctAnswer": "苹果",
+            "wrongAnswers": ["香蕉", "橙子", "葡萄"],
+            "imageName": ""
+        },
+        {
+            "word": "book",
+            "correctAnswer": "书",
+            "wrongAnswers": ["笔", "纸", "桌子"],
+            "imageName": ""
+        },
+        {
+            "word": "cat",
+            "correctAnswer": "猫",
+            "wrongAnswers": ["狗", "鸟", "鱼"],
+            "imageName": ""
+        },
+        {
+            "word": "dog",
+            "correctAnswer": "狗",
+            "wrongAnswers": ["猫", "狼", "狐狸"],
+            "imageName": ""
+        },
+        {
+            "word": "elephant",
+            "correctAnswer": "大象",
+            "wrongAnswers": ["老虎", "长颈鹿", "河马"],
+            "imageName": ""
+        },
+        {
+            "word": "flower",
+            "correctAnswer": "花",
+            "wrongAnswers": ["草", "树", "叶子"],
+            "imageName": ""
+        },
+        {
+            "word": "garden",
+            "correctAnswer": "花园",
+            "wrongAnswers": ["厨房", "卧室", "学校"],
+            "imageName": ""
+        },
+        {
+            "word": "happy",
+            "correctAnswer": "快乐的",
+            "wrongAnswers": ["悲伤的", "愤怒的", "疲惫的"],
+            "imageName": ""
+        },
+        {
+            "word": "ice",
+            "correctAnswer": "冰",
+            "wrongAnswers": ["水", "火", "风"],
+            "imageName": ""
+        },
+        {
+            "word": "jump",
+            "correctAnswer": "跳",
+            "wrongAnswers": ["跑", "走", "坐"],
+            "imageName": ""
+        },
+        {
+            "word": "kitchen",
+            "correctAnswer": "厨房",
+            "wrongAnswers": ["浴室", "客厅", "阳台"],
+            "imageName": ""
+        },
+        {
+            "word": "lion",
+            "correctAnswer": "狮子",
+            "wrongAnswers": ["老虎", "豹子", "熊"],
+            "imageName": ""
+        },
+        {
+            "word": "moon",
+            "correctAnswer": "月亮",
+            "wrongAnswers": ["太阳", "星星", "云"],
+            "imageName": ""
+        },
+        {
+            "word": "night",
+            "correctAnswer": "夜晚",
+            "wrongAnswers": ["早晨", "中午", "下午"],
+            "imageName": ""
+        },
+        {
+            "word": "ocean",
+            "correctAnswer": "海洋",
+            "wrongAnswers": ["河流", "湖泊", "池塘"],
+            "imageName": ""
+        }
+    ]
+}
